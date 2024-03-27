@@ -9,7 +9,7 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
+
 import { usePathname } from "next/navigation";
 
 const NavigationList = [

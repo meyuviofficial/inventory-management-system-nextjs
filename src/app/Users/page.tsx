@@ -1,8 +1,10 @@
+import TableComponent from "@/components/TableComponent";
 export default function Users() {
   return (
     <>
-      <h1>Users</h1>
-      <p>Users page</p>
+      <div className="mx-8 mt-12 min-h-screen">
+        <TableComponent />
+      </div>
     </>
   );
 }
