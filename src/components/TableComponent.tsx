@@ -10,11 +10,29 @@ import {
   getKeyValue,
 } from "@nextui-org/react";
 
+export interface UserList {
+  data: User[];
+}
+
+export interface User {
+  ID: number;
+  CreatedAt: string;
+  UpdatedAt: string;
+  DeletedAt: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  phonenumber: string;
+  password: string;
+  registrationid: string;
+  dateofbirth: string;
+}
+
 export default function TableComponent({
   rows,
   columns,
 }: {
-  rows: { key: string; name: string; role: string; status: string }[];
+  rows: User[];
   columns: { key: string; label: string }[];
 }) {
   return (
@@ -24,7 +42,7 @@ export default function TableComponent({
       </TableHeader>
       <TableBody items={rows}>
         {(item) => (
-          <TableRow key={item.key}>
+          <TableRow key={item.ID}>
             {(columnKey) => (
               <TableCell>{getKeyValue(item, columnKey)}</TableCell>
             )}
