@@ -11,6 +11,11 @@ import {
 } from "@nextui-org/react";
 
 import { usePathname } from "next/navigation";
+import { Switch } from "@nextui-org/react";
+import { MoonIcon } from "./MoonIcon";
+import { SunIcon } from "./SunIcon";
+
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const NavigationList = [
   {
@@ -36,6 +41,7 @@ export default function NavbarComponent() {
 
   return (
     <Navbar position="static" maxWidth="full">
+      
       <NavbarContent className="hidden sm:flex" justify="end">
         {NavigationList.map((item) => (
           <NavbarItem key={item.path} isActive={pathname === item.path}>
@@ -44,6 +50,9 @@ export default function NavbarComponent() {
             </Link>
           </NavbarItem>
         ))}
+        <NavbarItem>
+          <ThemeSwitcher />
+        </NavbarItem>
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>

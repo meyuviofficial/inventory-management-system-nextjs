@@ -4,6 +4,8 @@
 // import { NextUIProvider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useState } from "react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -21,6 +23,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
       })
   );
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <NextUIProvider>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        {/* <main className="dark text-foreground bg-background"> */}
+          <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+        {/* </main> */}
+      </NextThemesProvider>
+    </NextUIProvider>
   );
 }
