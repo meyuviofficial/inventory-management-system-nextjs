@@ -10,7 +10,6 @@ import { SunIcon } from "./SunIcon";
 export function ThemeSwitcher() {
     const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
-    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         setMounted(true)

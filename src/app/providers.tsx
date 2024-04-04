@@ -24,10 +24,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
   );
   return (
     <NextUIProvider>
-      <NextThemesProvider attribute="class" defaultTheme="dark">
-        {/* <main className="dark text-foreground bg-background"> */}
+      <NextThemesProvider attribute="class" defaultTheme="dark" >
+        <main className="text-foreground bg-background">
           <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-        {/* </main> */}
+        </main>
       </NextThemesProvider>
     </NextUIProvider>
   );
