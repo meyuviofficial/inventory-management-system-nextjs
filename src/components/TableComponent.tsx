@@ -8,6 +8,7 @@ import {
   TableRow,
   TableCell,
   getKeyValue,
+  Pagination,
 } from "@nextui-org/react";
 
 export interface UserList {
@@ -36,19 +37,24 @@ export default function TableComponent({
   columns: { key: string; label: string }[];
 }) {
   return (
-    <Table aria-label="Example table with dynamic content">
-      <TableHeader columns={columns}>
-        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-      </TableHeader>
-      <TableBody items={rows}>
-        {(item) => (
-          <TableRow key={item.ID}>
-            {(columnKey) => (
-              <TableCell>{getKeyValue(item, columnKey)}</TableCell>
-            )}
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
+    <>
+      <Table aria-label="Example table with dynamic content">
+        <TableHeader columns={columns}>
+          {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+        </TableHeader>
+        <TableBody items={rows} >
+          {(item) => (
+            <TableRow key={item.ID}>
+              {(columnKey) => (
+                <TableCell>{getKeyValue(item, columnKey)}</TableCell>
+              )}
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+      <div className="max-w-full pt-4 flex justify-center">
+        <Pagination loop showControls color="success" total={5} initialPage={1} />
+      </div>
+    </>
   );
 }
