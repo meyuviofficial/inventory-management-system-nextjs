@@ -54,7 +54,7 @@ export default function NavbarComponent() {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/Users/register" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
